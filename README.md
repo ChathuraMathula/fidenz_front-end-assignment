@@ -1,8 +1,9 @@
-# React + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Installation steps
+01. change the API key in .env file of the project root folder to your key taken from openweathermap.org
+02. run command 
+> `docker build -t my-weather-app:latest .` to build the docker image using docker file.
+03. run command
+> `docker run -p 3000:8080 my-weather-app:latest` to start the container from the created image in detached mode. change port number 3000 to your preferred port.
+03. Finally, visit http://localhost:3000/ to start the application.
