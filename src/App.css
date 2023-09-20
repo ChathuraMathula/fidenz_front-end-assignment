@@ -28,3 +28,16 @@ h1.weather-app__heading > img {
 .weather-app__footer > p {
     margin: 0;
 }
+
+.loading-div {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+.loading-div span{
+    margin: 0.5rem;
+}

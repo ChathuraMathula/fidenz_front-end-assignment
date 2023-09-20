@@ -1,14 +1,19 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import cities from "./resources/cities.json";
-import WeatherAPI from './keys/WeatherAPI';
 import MainContainer from './components/MainContainer';
 import weatherAppIcon from "./assets/weather_app_icon.png";
+import { Alert, AlertTitle, CircularProgress } from '@mui/material';
+
 
 function App() {
 
   const [cityCodes, setCityCodes] = useState([]);
   const [weatherInfo, setWeatherInfo] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  // const API_KEY = import.meta.env.WEATHER_API_KEY;
+  const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
   useEffect(() => {
     const cityCodesArray = [];
@@ -49,12 +54,13 @@ function App() {
   const getWeatherData = async () => {
     let weatherData = getCachedWeatherData();
 
-    if (!weatherData) {
+    if (!weatherData || (weatherData && weatherData.cod == 401)) {
+      setIsLoading(true);
       if (cityCodes.length > 0) {
         const cityCodesString = cityCodes.join(",");
 
         const apiUrl =
-          `https://api.openweathermap.org/data/2.5/group?id=${cityCodesString}&units=metric&appid=${WeatherAPI.key}`;
+          `https://api.openweathermap.org/data/2.5/group?id=${cityCodesString}&units=metric&appid=${API_KEY}`;
 
         weatherData = await fetch(apiUrl).then(res => (res.json()));
         cacheWeatherData({ ...weatherData })
@@ -62,6 +68,7 @@ function App() {
     }
 
     setWeatherInfo({ ...weatherData });
+    setIsLoading(false);
   };
 
   return (
@@ -70,7 +77,24 @@ function App() {
         <img src={weatherAppIcon} alt='weather app icon'></img>
         <span>Weather App</span>
       </h1>
-      <MainContainer weatherInfo={weatherInfo} />
+      <>
+        {
+          weatherInfo.cod == 401
+            ? <div className='loading-div'>
+              <Alert severity='error'>
+                <AlertTitle>Error 401</AlertTitle>
+                Cannot connect to the wather API.
+              </Alert>
+            </div>
+            : isLoading
+              ? <div className='loading-div'>
+                <CircularProgress style={{ color: "white" }} />
+                <span>Please wait...</span>
+              </div>
+              : <MainContainer weatherInfo={weatherInfo} />
+        }
+      </>
+
       <footer className='weather-app__footer'>
         <p>2023 Fidenz Technologies.</p>
       </footer>
