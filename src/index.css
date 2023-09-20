@@ -4,5 +4,16 @@
 }
 
 #root {
-  position: relative;
+  /* position: relative; */
+  min-height: 100vh;
+}
+
+body {
+  background-color: #1f2128;
+  background-image: url(./assets/Header_cloud_bg.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center top;
+  background-attachment: fixed;
+  margin: 0;
 }

@@ -53,13 +53,13 @@ const WeatherCard = (props) => {
                 <section className="section01">
                     <div>
                         <h2>{`${city.name}, ${city.sys.country}`}</h2>
-                        <span>{`${getTimeString(date)}, ${getDateString(date)}`}</span>
+                        <span className="updated-time">{`${getTimeString(date)}, ${getDateString(date)}`}</span>
                         <div className="weather-status">
                             <img src={iconUrl}></img>
                             <span>{`${capitalizeEachWord(city.weather[0].description)}`}</span>
                         </div>
                     </div>
-                    <div id="temperature">
+                    <div className="temperature">
                         <h2>{`${Math.round(city.main.temp)}`}&#8451;</h2>
                         <p>{`Temp Min: ${Math.round(city.main.temp_min)}`}&#8451;</p>
                         <p>{`Temp Max: ${Math.round(city.main.temp_max)}`}&#8451;</p>
