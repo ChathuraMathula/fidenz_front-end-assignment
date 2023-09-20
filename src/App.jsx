@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import cities from "./resources/cities.json";
 import WeatherAPI from './keys/WeatherAPI';
+import MainContainer from './components/MainContainer';
 
 function App() {
 
@@ -15,25 +16,29 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const cityCodesString = cityCodes.join(",");
+    if (cityCodes.length > 0) {
+      const cityCodesString = cityCodes.join(",");
 
-    const apiUrl = `https://api.openweathermap.org/data/2.5/group?
-      id=${cityCodesString}&units=metric&appid=${WeatherAPI.key}`;
+      const apiUrl =
+        `https://api.openweathermap.org/data/2.5/group?id=${cityCodesString}&units=metric&appid=${WeatherAPI.key}`;
 
-    fetch(apiUrl)
-      .then(res => (res.json()))
-      .then(res => {
-        setWeatherInfo({ ...res });
-      })
+      fetch(apiUrl)
+        .then(res => (res.json()))
+        .then(res => {
+          setWeatherInfo({ ...res });
+        })
+    }
   }, [cityCodes]);
+
 
   return (
     <>
-      <div>
-
-      </div>
+      <MainContainer weatherInfo={weatherInfo} />
     </>
-  )
+  );
+
+
+
 }
 
 export default App
