@@ -12,7 +12,6 @@ function App() {
   const [weatherInfo, setWeatherInfo] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  // const API_KEY = import.meta.env.WEATHER_API_KEY;
   const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
   useEffect(() => {
