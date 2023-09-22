@@ -4,6 +4,12 @@
     width: 100%;
 }
 
+.weather-card__container:hover {
+    cursor: pointer;
+    scale: 95% 95%;
+    transition: all 0.4s;
+}
+
 .section01,
 .section02 {
     display: flex;

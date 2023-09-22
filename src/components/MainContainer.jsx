@@ -1,19 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import WeatherCard from "./WeatherCard";
 import "./MainContainer.css";
+import ViewWeatherCard from "./ViewWeatherCard";
 
 const MainContainer = (props) => {
+
+    const [cityWeatherData, setCityWeatherData] = useState({});
+    const [isViewing, setIsViewing] = useState(false);
+
+    const onClickWeatherCardHandler = (cityName) => {
+        const extractedCityWeatherData = props.weatherInfo?.list.filter(city => {
+            return city.name === cityName;
+        });
+        setCityWeatherData({ ...extractedCityWeatherData[0] });
+        console.log(extractedCityWeatherData[0]);
+        setIsViewing(true);
+    };
+
+    const onClickBackhandler = (hasBackClicked) => {
+        if (hasBackClicked) {
+            setIsViewing(false);
+        }
+    };
+
     return (
         <div className="main-container">
             {
-                props.weatherInfo?.list ?
-                    props.weatherInfo.list.map((listItem, i) => {
+                !isViewing && props.weatherInfo?.list
+                    ? props.weatherInfo.list.map((listItem, i) => {
                         return (
                             <>
-                                <WeatherCard city={listItem} />
+                                <WeatherCard city={listItem}
+                                    onClickWeatherCard={onClickWeatherCardHandler} />
                             </>
                         );
-                    }) : null
+                    })
+                    : isViewing && cityWeatherData.name
+                        ? <>
+                            <ViewWeatherCard weatherData={cityWeatherData} 
+                                onClickBack={onClickBackhandler} />
+                        </>
+                        : null
             }
         </div>
     );

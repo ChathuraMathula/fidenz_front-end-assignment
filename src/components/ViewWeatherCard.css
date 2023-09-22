@@ -1,0 +1,106 @@
+.view-weather-card__container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.top-section {
+    color: white;
+    padding-top: 1rem;
+}
+
+.top-section > div:nth-child(1) {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.top-section > div:nth-child(1) > h2{
+    font-size: 1.2rem;
+    margin: 1rem 0 0.3rem 0;
+}
+
+.top-section > div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.top-section > div:nth-child(2) > div{
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-weather-status {
+    
+}
+
+.view-weather-status > img {
+    height: 3rem;
+    width: 3rem;
+    margin-bottom: 0.8rem;
+}
+
+p {
+    margin: 0;
+}
+
+.view-temperature {
+    border-left: 1.5px solid white;
+}
+
+.view-temperature > h2 {
+    font-size: 2rem;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.back-button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0.3rem;
+}
+
+.back-button:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+/* For Medium Mobile Phones */
+@media (min-width: 576px) {
+    .view-weather-card__container {
+        width: 90%;
+    }
+
+    .top-section > div:nth-child(1) > h2{
+        font-size: 1.4rem;
+    }
+}
+
+/* For Tablets & Laptops */
+@media (min-width: 768px) {
+    .view-weather-card__container {
+        width: 70%;
+    }
+
+    .top-section > div:nth-child(1) > h2{
+        font-size: 1.6rem;
+    }
+}
+
+/* For Laptops */
+@media (min-width: 992px) {
+    .view-weather-card__container {
+        width: 70%;
+    }
+
+    .top-section {
+        padding: 2rem;
+    }
+}
