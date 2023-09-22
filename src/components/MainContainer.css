@@ -4,13 +4,19 @@
     justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
-    padding: 1rem;
+    padding: 0.5rem;
 
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
 }
 
+/* For Medium Mobile Phones */
+@media (min-width: 576px) {
+    .main-container {
+        padding: 1rem;
+    }
+}
 
 /* For Tablets & Laptops */
 @media (min-width: 768px) {
