@@ -4,12 +4,13 @@ import "./ViewWeatherCard.css";
 import utils from "../../utils/utils.js";
 import WeatherCardBottom from "./WeatherCardBottom";
 import { ArrowBack } from "@mui/icons-material";
+import { WEATHER_ICON_BASE_URL } from "../../constants/apiConstants";
 
 
 const ViewWeatherCard = props => {
     const city = props.weatherData;
     const date = new Date(city.dt * 1000);
-    const iconUrl = `https://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`;
+    const iconUrl = `${WEATHER_ICON_BASE_URL}/${city.weather[0].icon}@2x.png`;
 
     const onClickBackHandler = (e) => {
         props.onClickBack(true);
