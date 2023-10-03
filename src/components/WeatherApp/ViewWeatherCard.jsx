@@ -1,10 +1,15 @@
 import React from "react";
 import "./ViewWeatherCard.css";
 
-import utils from "../../utils/utils.js";
 import WeatherCardBottom from "./WeatherCardBottom";
+
 import { ArrowBack } from "@mui/icons-material";
+
 import { WEATHER_ICON_BASE_URL } from "../../constants/apiConstants";
+
+import { getRandomHSLColor } from "../../utils/colorUtils";
+import { getDateString, getTimeString } from "../../utils/dateUtils";
+import { capitalizeEachWord } from "../../utils/stringUtils";
 
 
 const ViewWeatherCard = props => {
@@ -19,19 +24,19 @@ const ViewWeatherCard = props => {
     return (
         <>
             <div className="view-weather-card__container"
-                style={{ backgroundColor: utils.getRandomHSLColor(city.name) }}>
+                style={{ backgroundColor: getRandomHSLColor(city.name) }}>
                 <div className="back-button" onClick={onClickBackHandler}>
                     <ArrowBack sx={{ color: "white" }} />
                 </div>
                 <section className="top-section">
                     <div>
                         <h2>{`${city.name}, ${city.sys.country}`}</h2>
-                        <span>{`${utils.getTimeString(date)}, ${utils.getDateString(date)}`}</span>
+                        <span>{`${getTimeString(date)}, ${getDateString(date)}`}</span>
                     </div>
                     <div>
                         <div className="view-weather-status">
                             <img src={iconUrl}></img>
-                            <span>{`${utils.capitalizeEachWord(city.weather[0].description)}`}</span>
+                            <span>{`${capitalizeEachWord(city.weather[0].description)}`}</span>
                         </div>
                         <div className="view-temperature">
                             <h2>{`${Math.round(city.main.temp)}`}&#8451;</h2>

@@ -1,8 +1,9 @@
 import React from "react";
 import "./WeatherCardBottom.css";
-import utils from "../../utils/utils";
 
 import wind_direction_icon from "../../assets/wind_direction.png";
+
+import { getTimeString } from "../../utils/dateUtils";
 
 const WeatherCardBottom = props => {
 
@@ -20,8 +21,8 @@ const WeatherCardBottom = props => {
                     <p>{`${props.wind.speed.toFixed(1)}m/s ${props.wind.deg} Degree`}</p>
                 </div>
                 <div>
-                    <p><span>Sunrise:</span>{` ${utils.getTimeString(new Date(props.sunrise * 1000))}`}</p>
-                    <p><span>Sunset:</span>{` ${utils.getTimeString(new Date(props.sunset * 1000))}`}</p>
+                    <p><span>Sunrise:</span>{` ${getTimeString(new Date(props.sunrise * 1000))}`}</p>
+                    <p><span>Sunset:</span>{` ${getTimeString(new Date(props.sunset * 1000))}`}</p>
                 </div>
             </section>
         </>
