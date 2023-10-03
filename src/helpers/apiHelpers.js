@@ -1,9 +1,6 @@
 import { WEATHER_API_BASE_URL, WEATHER_API_KEY } from "../constants/apiConstants";
 
-/**
- * 
- * @param {Array<number>} cityCodes 
- */
+
 const fetchWeatherDataByCityCodes = async (cityCodes) => {
 
     try {
