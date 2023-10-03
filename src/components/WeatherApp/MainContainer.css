@@ -32,3 +32,10 @@
         width: 90%;
     }
 }
+
+/* For Large screens */
+@media (min-width: 992px) {
+    .main-container {
+        width: 90%;
+    }
+}
