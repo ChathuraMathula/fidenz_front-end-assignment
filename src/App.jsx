@@ -4,6 +4,8 @@ import cities from "./data/cities.json";
 import MainContainer from './components/WeatherApp/MainContainer';
 import weatherAppIcon from "./assets/weather_app_icon.png";
 import { Alert, AlertTitle, CircularProgress } from '@mui/material';
+import { fetchCachedWeatherData, cacheWeatherData } from './helpers/localStorageHelpers';
+import fetchWeatherDataByCityCodes from './helpers/apiHelpers';
 
 
 function App() {
@@ -11,8 +13,8 @@ function App() {
   const [cityCodes, setCityCodes] = useState([]);
   const [weatherInfo, setWeatherInfo] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
   useEffect(() => {
     const cityCodesArray = [];
@@ -21,54 +23,39 @@ function App() {
   }, []);
 
   useEffect(() => {
-    getWeatherData();
+    if (cityCodes.length > 0) {
+      fetchWeatherData();
+    }
   }, [cityCodes]);
 
 
-  const cacheWeatherData = (data) => {
-    const timespan = Date.now();
-    const cachedData = {
-      data: data,
-      timespan: timespan,
-    };
+  const fetchWeatherData = async () => {
 
-    localStorage.setItem("weatherData", JSON.stringify(cachedData));
-  };
+    let cachedWeatherData = fetchCachedWeatherData();
 
-  const getCachedWeatherData = () => {
-    const cachedData = localStorage.getItem("weatherData");
-    if (!cachedData) {
-      return null;
-    }
-    const { data, timespan } = JSON.parse(cachedData);
-
-    const fiveMinutesInMS = 5 * 60 * 1000;
-    if (Date.now() - timespan > fiveMinutesInMS) {
-      localStorage.removeItem("weatherData");
-      return null;
-    }
-    return data;
-  };
-
-  const getWeatherData = async () => {
-    let weatherData = getCachedWeatherData();
-
-    if (!weatherData || (weatherData && weatherData.cod == 401)) {
+    if (!cachedWeatherData) {
       setIsLoading(true);
-      if (cityCodes.length > 0) {
-        const cityCodesString = cityCodes.join(",");
+      await fetchWeatherDataByCityCodes(cityCodes)
+        .then(latestWeatherData => {
+          cacheWeatherData({ ...latestWeatherData });
+          setWeatherInfo({ ...latestWeatherData });
+          setIsLoading(false);
+          setError(false);
+        })
+        .catch(error => {
+          if (error) {
+            setError(error.message);
+          }
+        });
 
-        const apiUrl =
-          `https://api.openweathermap.org/data/2.5/group?id=${cityCodesString}&units=metric&appid=${API_KEY}`;
-
-        weatherData = await fetch(apiUrl).then(res => (res.json()));
-        cacheWeatherData({ ...weatherData })
-      }
+    } else {
+      setWeatherInfo({ ...cachedWeatherData });
+      setIsLoading(false);
+      setError(false);
     }
 
-    setWeatherInfo({ ...weatherData });
-    setIsLoading(false);
   };
+
 
   return (
     <>
@@ -78,11 +65,10 @@ function App() {
       </h1>
       <>
         {
-          weatherInfo.cod == 401
+          error
             ? <div className='loading-div'>
               <Alert severity='error'>
-                <AlertTitle>Error 401</AlertTitle>
-                Cannot connect to the wather API.
+                <AlertTitle>{error}</AlertTitle>
               </Alert>
             </div>
             : isLoading
