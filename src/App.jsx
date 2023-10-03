@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import cities from "./resources/cities.json";
-import MainContainer from './components/MainContainer';
+import cities from "./data/cities.json";
+import MainContainer from './components/WeatherApp/MainContainer';
 import weatherAppIcon from "./assets/weather_app_icon.png";
 import { Alert, AlertTitle, CircularProgress } from '@mui/material';
 

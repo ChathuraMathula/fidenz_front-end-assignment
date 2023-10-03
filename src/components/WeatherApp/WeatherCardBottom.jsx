@@ -1,8 +1,8 @@
 import React from "react";
 import "./WeatherCardBottom.css";
-import utils from "../utils/utils";
+import utils from "../../utils/utils";
 
-import wind_direction_icon from "../assets/wind_direction.png";
+import wind_direction_icon from "../../assets/wind_direction.png";
 
 const WeatherCardBottom = props => {
 

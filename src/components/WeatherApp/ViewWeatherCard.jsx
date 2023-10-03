@@ -1,7 +1,7 @@
 import React from "react";
 import "./ViewWeatherCard.css";
 
-import utils from "../utils/utils.js";
+import utils from "../../utils/utils.js";
 import WeatherCardBottom from "./WeatherCardBottom";
 import { ArrowBack } from "@mui/icons-material";
 
@@ -19,9 +19,9 @@ const ViewWeatherCard = props => {
         <>
             <div className="view-weather-card__container"
                 style={{ backgroundColor: utils.getRandomHSLColor(city.name) }}>
-                    <div className="back-button" onClick={onClickBackHandler}>
-                        <ArrowBack sx={{ color: "white" }}/>
-                    </div>
+                <div className="back-button" onClick={onClickBackHandler}>
+                    <ArrowBack sx={{ color: "white" }} />
+                </div>
                 <section className="top-section">
                     <div>
                         <h2>{`${city.name}, ${city.sys.country}`}</h2>
@@ -39,7 +39,7 @@ const ViewWeatherCard = props => {
                         </div>
                     </div>
                 </section>
-                <WeatherCardBottom 
+                <WeatherCardBottom
                     pressure={city.main.pressure}
                     humidity={city.main.humidity}
                     visibility={city.visibility}
