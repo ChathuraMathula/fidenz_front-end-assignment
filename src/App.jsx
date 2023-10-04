@@ -37,7 +37,7 @@ function App() {
       setIsLoading(true);
       await fetchWeatherDataByCityCodes(cityCodes)
         .then(latestWeatherData => {
-          cacheWeatherData({ ...latestWeatherData });
+          cacheWeatherData(latestWeatherData);
           setWeatherInfo({ ...latestWeatherData });
           setIsLoading(false);
           setError(false);

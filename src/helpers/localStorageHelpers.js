@@ -1,5 +1,8 @@
 
 export const cacheWeatherData = (weatherData) => {
+    if (!weatherData) {
+        return;
+    }
     const timespan = Date.now();
     const cachedData = {
         data: weatherData,
