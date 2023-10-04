@@ -2,7 +2,7 @@
 
 ## Installation steps
 01. Download and extract the source code.
-02. Change the API key in .env file of the project root folder to your key taken from openweathermap.org
+02. Change the API key in .env file of the project root folder to your key taken from https://openweathermap.org/
 03. Install and run docker engine on your PC.
 04. Run `docker build -t my-weather-app:latest .` 
 command in the project root directory to build the docker image using docker file.
