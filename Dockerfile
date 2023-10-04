@@ -2,7 +2,7 @@ FROM node:18-alpine AS BUILD_IMAGE
 
 WORKDIR /app/weather-app
 
-COPY package.json .
+COPY package*.json .
 
 RUN npm install
 
@@ -19,8 +19,11 @@ COPY --from=BUILD_IMAGE /app/weather-app/dist/ /app/weather-app/dist/
 EXPOSE 8080
 
 COPY package.json .
+
 COPY vite.config.js .
 
 RUN npm install
+
 EXPOSE 8080
+
 CMD ["npm", "run", "preview"]
