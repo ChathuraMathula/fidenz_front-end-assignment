@@ -1,8 +1,6 @@
 import React from "react";
 import "./ViewWeatherCard.css";
 
-import WeatherCardBottom from "./WeatherCardBottom";
-
 import { ArrowBack } from "@mui/icons-material";
 
 import { WEATHER_ICON_BASE_URL } from "../../constants/apiConstants";
