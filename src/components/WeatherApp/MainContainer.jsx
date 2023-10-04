@@ -13,7 +13,6 @@ const MainContainer = (props) => {
             return city.name === cityName;
         });
         setCityWeatherData({ ...extractedCityWeatherData[0] });
-        console.log(extractedCityWeatherData[0]);
         setIsViewing(true);
     };
 

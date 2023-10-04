@@ -12,7 +12,6 @@ const fetchWeatherDataByCityCodes = async (cityCodes) => {
 
 
             if (!response.ok) {
-                console.log("====>", response)
                 throw new Error(`HTTP error! status: ${response.status} (${response.statusText})`);
             }
 
@@ -21,7 +20,6 @@ const fetchWeatherDataByCityCodes = async (cityCodes) => {
 
 
         } catch (error) {
-            console.log("Error fetching weather data", error);
             throw error;
         }
     }

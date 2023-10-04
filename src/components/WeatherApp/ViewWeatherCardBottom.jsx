@@ -1,0 +1,32 @@
+import React from "react";
+import "./ViewWeatherCardBottom.css";
+
+import wind_direction_icon from "../../assets/wind_direction.png";
+
+import { getTimeString } from "../../utils/dateUtils";
+
+const ViewWeatherCardBottom = props => {
+
+
+    return (
+        <>
+            <section className="view-card__bottom-section">
+                <div>
+                    <p><span>Pressure:</span>{` ${props.pressure}hPa`}</p>
+                    <p><span>Humidity:</span>{` ${props.humidity}%`}</p>
+                    <p><span>Visibility:</span>{` ${(props.visibility / 1000).toFixed(1)}km`}</p>
+                </div>
+                <div>
+                    <img src={wind_direction_icon} alt="wind_direction_icon"></img>
+                    <p>{`${props.wind.speed.toFixed(1)}m/s ${props.wind.deg} Degree`}</p>
+                </div>
+                <div>
+                    <p><span>Sunrise:</span>{` ${getTimeString(new Date(props.sunrise * 1000))}`}</p>
+                    <p><span>Sunset:</span>{` ${getTimeString(new Date(props.sunset * 1000))}`}</p>
+                </div>
+            </section>
+        </>
+    );
+};
+
+export default ViewWeatherCardBottom;

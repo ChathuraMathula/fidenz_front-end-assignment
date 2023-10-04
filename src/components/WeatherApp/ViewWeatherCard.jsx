@@ -10,6 +10,7 @@ import { WEATHER_ICON_BASE_URL } from "../../constants/apiConstants";
 import { getRandomHSLColor } from "../../utils/colorUtils";
 import { getDateString, getTimeString } from "../../utils/dateUtils";
 import { capitalizeEachWord } from "../../utils/stringUtils";
+import ViewWeatherCardBottom from "./ViewWeatherCardBottom";
 
 
 const ViewWeatherCard = props => {
@@ -45,7 +46,7 @@ const ViewWeatherCard = props => {
                         </div>
                     </div>
                 </section>
-                <WeatherCardBottom
+                <ViewWeatherCardBottom
                     pressure={city.main.pressure}
                     humidity={city.main.humidity}
                     visibility={city.visibility}

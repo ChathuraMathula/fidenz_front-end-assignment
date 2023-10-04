@@ -57,9 +57,13 @@ function App() {
   };
 
 
+  const onClickHeadingHandler = (event) => {
+    window.location.reload(true);
+  }
+
   return (
     <>
-      <h1 className='weather-app__heading'>
+      <h1 className='weather-app__heading' onClick={onClickHeadingHandler}>
         <img src={weatherAppIcon} alt='weather app icon'></img>
         <span>Weather App</span>
       </h1>
