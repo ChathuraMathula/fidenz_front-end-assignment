@@ -1,7 +1,7 @@
 import React from "react";
 import "./ViewWeatherCardBottom.css";
 
-import wind_direction_icon from "../../assets/wind_direction.png";
+import wind_direction_icon from "../../assets/images/wind_direction.png";
 
 import { getTimeString } from "../../utils/dateUtils";
 

@@ -4,14 +4,12 @@
 }
 
 #root {
-  /* position: relative; */
-  /* min-height: 100vh; */
   margin: 0;
 }
 
 body {
   background-color: #1f2128;
-  background-image: url(./assets/Header_cloud_bg_extra_small.png);
+  background-image: url(./assets/images/Header_cloud_bg_extra_small.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center top;
@@ -23,14 +21,14 @@ body {
 /* For Medium Mobile Phones */
 @media (min-width: 576px) {
   body {
-    background-image: url(./assets/Header_cloud_bg_small.png);
+    background-image: url(./assets/images/Header_cloud_bg_small.png);
   }
 }
 
 /* For Tablets & Laptops */
 @media (min-width: 768px) {
   body {
-    background-image: url(./assets/Header_cloud_bg_medium.png);
+    background-image: url(./assets/images/Header_cloud_bg_medium.png);
   }
 }
 

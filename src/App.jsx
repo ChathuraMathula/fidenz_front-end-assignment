@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import cities from "./data/cities.json";
 import MainContainer from './components/WeatherApp/MainContainer';
-import weatherAppIcon from "./assets/weather_app_icon.png";
+import weatherAppIcon from "./assets/images/weather_app_icon.png";
 import { Alert, AlertTitle, CircularProgress } from '@mui/material';
 import { fetchCachedWeatherData, cacheWeatherData } from './helpers/localStorageHelpers';
 import fetchWeatherDataByCityCodes from './helpers/apiHelpers';
