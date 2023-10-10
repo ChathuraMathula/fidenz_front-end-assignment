@@ -10,136 +10,12 @@
     transition: all 0.4s;
 }
 
-
-.section01 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    padding: 1rem 2rem;
-    color: white;
-    font-size: 1rem;
-    border-radius: 5px 5px 0 0;
-    background-image: url(../images/cloud_bg.png);
-    background-size: contain;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    padding-top: 1rem;
-}
-
-
-.section01>div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.5rem;
-}
-
-.section01 p,
-.section01 span {
-    font-size: 1rem;
-}
-
-.section01>div:nth-child(1)>* {
-    padding: 0;
-    text-align: center;
-}
-
-.section01>div:nth-child(1)>h2 {
-    padding: 0;
-    font-size: 1.2rem;
-    margin: 0;
-}
-
-
-
-div.weather-status {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-}
-
-div.weather-status>img {
-    height: 3.2rem;
-    width: 3.2rem;
-}
-
-.section02 span {
-    font-weight: bold;
-}
-
-.temperature>h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 0;
-}
-
-.temperature>p {
-    padding: 3px 0;
-}
-
 /* For Medium Mobile Phones */
 @media (min-width: 576px) {
     .weather-card__container {
         margin: 1rem 0;
         border-radius: 5px;
         width: 100%;
-    }
-
-    .section01 {
-        flex-direction: row;
-        padding: 2rem 1rem;
-        color: white;
-        border-radius: 5px 5px 0 0;
-        background-image: url(../images/cloud_bg.png);
-        background-size: contain;
-        background-position: center bottom;
-        background-repeat: no-repeat;
-        align-items: center;
-    }
-
-    .section01>div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 100%;
-        /* padding: 1rem; */
-        justify-content: space-between;
-    }
-
-    .section01>div:nth-child(1)>* {
-        text-align: center;
-    }
-
-
-    .section01>div:nth-child(1)>h2 {
-        padding: 0;
-        font-size: 1.5rem;
-        margin: 0;
-    }
-
-    div.weather-status {
-        flex-direction: row;
-        align-items: center;
-        margin-top: 0.5rem;
-        padding: 0;
-    }
-
-    div.weather-status>img {
-        height: 3.5rem;
-        width: 3.5rem;
-    }
-
-    .temperature>h2 {
-        font-size: 3rem;
-        font-weight: normal;
-        margin: 0;
-    }
-
-    .temperature>p {
-        padding: 5px 0;
-        margin: 0;
     }
 }
 
@@ -148,32 +24,12 @@ div.weather-status>img {
     .weather-card__container {
         width: 49%;
     }
-
-
-    .section01 {
-        padding: 1rem;
-    }
-
-    .temperature>p {
-        font-size: 1rem;
-    }
-
-    .updated-time,
-    .weather-status {
-        font-size: 1rem;
-    }
-
 }
 
 /* For Laptops */
 @media (min-width: 992px) {
     .weather-card__container {
         width: 48%;
-    }
-
-    div.weather-status>img {
-        height: 4rem;
-        width: 4rem;
     }
 }
 

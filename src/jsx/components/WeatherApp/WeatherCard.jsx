@@ -3,19 +3,15 @@ import "../../../css/WeatherCard.css";
 
 import WeatherCardBottom from "./WeatherCardBottom";
 
-import { WEATHER_ICON_BASE_URL } from "../../../js/constants/constants.js";
-
 import { getRandomHSLColor } from "../../../js/utils/colorUtils";
-import { getDateString, getTimeString } from "../../../js/utils/dateUtils";
-import { capitalizeEachWord } from "../../../js/utils/stringUtils";
+import WeatherCardTop from "./WeatherCardTop";
 
 const WeatherCard = (props) => {
 
     const city = props.city;
     const date = new Date(city.dt * 1000);
-    const iconUrl = `${WEATHER_ICON_BASE_URL}/${city.weather[0].icon}@2x.png`;
-
-    const onClicWeatherCardkHandler = (cityName) => {
+    
+    const onClickWeatherCardkHandler = (cityName) => {
         props.onClickWeatherCard(cityName);
     }
 
@@ -23,22 +19,17 @@ const WeatherCard = (props) => {
         <>
             <div key={city.name} className="weather-card__container"
                 style={{ backgroundColor: getRandomHSLColor(city.name) }}
-                onClick={() => onClicWeatherCardkHandler(city.name)}>
-                <section className="section01">
-                    <div>
-                        <h2>{`${city.name}, ${city.sys.country}`}</h2>
-                        <span className="updated-time">{`${getTimeString(date)}, ${getDateString(date)}`}</span>
-                        <div className="weather-status">
-                            <img src={iconUrl}></img>
-                            <span>{`${capitalizeEachWord(city.weather[0].description)}`}</span>
-                        </div>
-                    </div>
-                    <div className="temperature">
-                        <h2>{`${Math.round(city.main.temp)}`}&#8451;</h2>
-                        <p>{`Temp Min: ${Math.round(city.main.temp_min)}`}&#8451;</p>
-                        <p>{`Temp Max: ${Math.round(city.main.temp_max)}`}&#8451;</p>
-                    </div>
-                </section>
+                onClick={() => onClickWeatherCardkHandler(city.name)}>
+                <WeatherCardTop
+                    cityName={city.name}
+                    country={city.sys.country}
+                    date={date}
+                    weatherDescription={city.weather[0].description}
+                    temperature={city.main.temp}
+                    minimumTemperature={city.main.temp_min}
+                    maximumTemperature={city.main.temp_max}
+                    weatherIconName={city.weather[0].icon}
+                />
                 <WeatherCardBottom
                     pressure={city.main.pressure}
                     humidity={city.main.humidity}
