@@ -1,5 +1,5 @@
 import React from "react";
-import "./ViewWeatherCard.css";
+import "../../../css/ViewWeatherCard.css";
 
 import { ArrowBack } from "@mui/icons-material";
 

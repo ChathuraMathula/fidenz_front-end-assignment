@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import WeatherCard from "./WeatherCard";
-import "./MainContainer.css";
+import "../../../css/MainContainer.css";
 import ViewWeatherCard from "./ViewWeatherCard";
 
 const MainContainer = (props) => {

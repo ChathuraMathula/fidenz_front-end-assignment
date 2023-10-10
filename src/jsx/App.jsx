@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import './App.css'
-import cities from "./json/cities.json";
+import '../css/App.css';
+import cities from "../json/cities.json";
 import MainContainer from './components/WeatherApp/MainContainer';
-import weatherAppIcon from "./assets/images/weather_app_icon.png";
+import weatherAppIcon from "../images/weather_app_icon.png";
 import { Alert, AlertTitle, CircularProgress } from '@mui/material';
-import { fetchCachedWeatherData, cacheWeatherData } from './helpers/localStorageHelpers';
-import fetchWeatherDataByCityCodes from './helpers/apiHelpers';
+import { fetchCachedWeatherData, cacheWeatherData } from '../js/helpers/localStorageHelpers';
+import fetchWeatherDataByCityCodes from '../js/helpers/apiHelpers';
 
 
 function App() {

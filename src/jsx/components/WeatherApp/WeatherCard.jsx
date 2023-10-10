@@ -1,5 +1,5 @@
 import React from "react";
-import "./WeatherCard.css";
+import "../../../css/WeatherCard.css";
 
 import WeatherCardBottom from "./WeatherCardBottom";
 

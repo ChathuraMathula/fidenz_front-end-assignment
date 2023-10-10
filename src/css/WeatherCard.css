@@ -20,7 +20,7 @@
     color: white;
     font-size: 1rem;
     border-radius: 5px 5px 0 0;
-    background-image: url(./../../assets/images/cloud_bg.png);
+    background-image: url(../images/cloud_bg.png);
     background-size: contain;
     background-position: center bottom;
     background-repeat: no-repeat;
@@ -92,7 +92,7 @@ div.weather-status>img {
         padding: 2rem 1rem;
         color: white;
         border-radius: 5px 5px 0 0;
-        background-image: url(./../../assets/images/cloud_bg.png);
+        background-image: url(../images/cloud_bg.png);
         background-size: contain;
         background-position: center bottom;
         background-repeat: no-repeat;
