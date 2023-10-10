@@ -3,11 +3,11 @@ import "./WeatherCard.css";
 
 import WeatherCardBottom from "./WeatherCardBottom";
 
-import { WEATHER_ICON_BASE_URL } from "../../constants/apiConstants";
+import { WEATHER_ICON_BASE_URL } from "../../../js/constants/constants.js";
 
-import { getRandomHSLColor } from "../../utils/colorUtils";
-import { getDateString, getTimeString } from "../../utils/dateUtils";
-import { capitalizeEachWord } from "../../utils/stringUtils";
+import { getRandomHSLColor } from "../../../js/utils/colorUtils";
+import { getDateString, getTimeString } from "../../../js/utils/dateUtils";
+import { capitalizeEachWord } from "../../../js/utils/stringUtils";
 
 const WeatherCard = (props) => {
 
