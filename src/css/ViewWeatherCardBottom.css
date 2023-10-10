@@ -1,13 +1,12 @@
 .view-card__bottom-section {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-around;
     color: white;
     background-color: #383b47;
     border-radius: 0 0 5px 5px;
-    padding: 1rem 2rem;
-    font-size: 1rem;
+    padding: 0.5rem;
+    font-size: 0.7rem;
 }
 
 
@@ -22,7 +21,7 @@
 }
 
 .view-card__bottom-section>div:nth-child(1) {
-    text-align: center;
+    text-align: left;
     padding-bottom: 1rem;
 }
 
@@ -40,14 +39,14 @@
 }
 
 .view-card__bottom-section>div:nth-child(2) {
-    border-top: 1.5px solid grey;
-    border-bottom: 1.5px solid grey;
+    border-left: 1.5px solid grey;
+    border-right: 1.5px solid grey;
     text-align: center;
-    padding: 1rem 0;
+    padding: 0.4rem 0;
 }
 
 .view-card__bottom-section>div:nth-child(3) {
-    text-align: center;
+    text-align: right;
     padding-top: 1rem;
 }
 
@@ -61,16 +60,12 @@
 @media (min-width: 576px) {
 
     .view-card__bottom-section {
-        flex-direction: row;
-        color: white;
-        background-color: #383b47;
-        border-radius: 0 0 5px 5px;
-        padding: 1rem 0;
+        padding: 0.8rem;
     }
 
 
     .view-card__bottom-section>div {
-        padding: 1rem;
+        padding: 0;
     }
 
     .view-card__bottom-section>div>p {
@@ -79,10 +74,12 @@
     }
 
     .view-card__bottom-section>div:nth-child(1) {
+        padding: 0;
         text-align: left;
     }
 
     .view-card__bottom-section>div:nth-child(2) {
+        padding: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -104,6 +101,7 @@
     }
 
     .view-card__bottom-section>div:nth-child(3) {
+        padding: 0;
         text-align: right;
     }
 
@@ -115,16 +113,24 @@
 
 /* For Tablets & Laptops */
 @media (min-width: 768px) {
+    .view-card__bottom-section {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
 
 }
 
 /* For Laptops */
 @media (min-width: 992px) {
-
+    .view-card__bottom-section {
+        padding: 1rem;
+    }
 }
 
 
 /* For Large screens */
 @media (min-width: 1200px) {
-    
+    .view-card__bottom-section {
+        padding: 1.2rem;
+    }
 }
