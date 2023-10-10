@@ -1,10 +1,11 @@
 import React from "react";
 import "../../../css/AppFooter.css";
+import { FOOTER_DESCRIPTION } from "../../../js/constants/constants";
 
 const AppFooter = props => {
     return (
         <footer className='weather-app__footer'>
-            <p>2023 Fidenz Technologies.</p>
+            <p>{FOOTER_DESCRIPTION}</p>
         </footer>
     );
 };

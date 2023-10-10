@@ -6,7 +6,7 @@
     background-color: #383b47;
     border-radius: 0 0 5px 5px;
     padding: 0.5rem;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
 }
 
 
@@ -60,6 +60,7 @@
 @media (min-width: 576px) {
 
     .view-card__bottom-section {
+        font-size: 0.7rem;
         padding: 0.8rem;
     }
 

@@ -13,6 +13,15 @@ export const getTimeString = (date) => {
             ? "pm"
             : null;
     const timeArray = timeString.split(":");
-    const time = `${timeArray[0]}.${timeArray[1]}${ampm}`;
-    return time;
+    const hours = timeArray[0];
+    const minutes = timeArray[1];
+
+    if (ampm) {
+        return `${hours}.${minutes}${ampm}`;
+    } else {
+        if (hours > 12) {
+            return `${hours % 12}.${minutes}pm`;
+        }
+        return `${hours % 12}.${minutes}am`;
+    }
 }
