@@ -3,18 +3,15 @@ import '../../css/App.css';
 
 import cities from "../../json/cities.json";
 
-import {
-  fetchCachedWeatherData,
-  cacheWeatherData
-} from '../../js/helpers/localStorageHelpers';
+import { fetchCachedWeatherData, cacheWeatherData } from '../../js/helpers/localStorageHelpers';
 import fetchWeatherDataByCityCodes from '../../js/helpers/apiHelpers';
 
 import AppHeader from './header/AppHeader';
 import AppFooter from './footer/AppFooter';
 import ErrorMessage from './UI/other/ErrorMessage';
-import WaitMessage from './UI/other/WaitMessage';
 import WeatherContainer from './UI/containers/WeatherContainer';
 import MainContainer from './UI/containers/MainContainer';
+import LoadingSpinner from './UI/other/LoadingSpinner';
 
 
 function WeatherApp() {
@@ -73,7 +70,7 @@ function WeatherApp() {
           error
             ? <ErrorMessage error={error} />
             : isLoading
-              ? <WaitMessage />
+              ? <LoadingSpinner />
               : <WeatherContainer weatherData={weatherData} />
         }
       </MainContainer>

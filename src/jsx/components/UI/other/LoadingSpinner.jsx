@@ -1,8 +1,8 @@
 import React from "react";
 import { CircularProgress } from "@mui/material";
-import "../../../../css/WaitMessage.css";
+import "../../../../css/LoadingSpinner.css";
 
-const WaitMessage = props => {
+const LoadingSpinner = props => {
 
     return (
         <div className="wait-message">
@@ -12,4 +12,4 @@ const WaitMessage = props => {
     );
 };
 
-export default WaitMessage;
+export default LoadingSpinner;
