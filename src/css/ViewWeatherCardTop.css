@@ -1,0 +1,103 @@
+.top-section {
+    color: white;
+    padding: 1rem 2rem 0 2rem;
+}
+
+.top-section>div:nth-child(1) {
+    text-align: center;
+}
+
+.top-section>div:nth-child(1)>h2 {
+    font-size: 1.2rem;
+    margin: 1rem 0 0.3rem 0;
+}
+
+.top-section>div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.view-weather-status,
+.view-temperature {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-temperature {
+    border-top: 1.3px solid white;
+}
+
+.view-weather-status>img {
+    height: 3rem;
+    width: 3rem;
+}
+
+p {
+    margin: 0;
+}
+
+
+.view-temperature>h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.view-temperature>p {
+    padding: 3px 0;
+}
+
+/* For Medium Mobile Phones */
+@media (min-width: 576px) {
+
+    .top-section>div:nth-child(1)>h2 {
+        font-size: 1.4rem;
+    }
+
+    .top-section>div:nth-child(2) {
+        flex-direction: row;
+        padding: 1rem 0;
+    }
+
+    .view-weather-status>img {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+
+    .view-temperature {
+        border-top: none;
+        border-left: 1.3px solid white;
+    }
+}
+
+/* For Tablets & Laptops */
+@media (min-width: 768px) {
+    .top-section {
+        padding: 0;
+    }
+
+    .top-section>div:nth-child(1)>h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* For Laptops */
+@media (min-width: 992px) {
+    .view-weather-status>img {
+        height: 4rem;
+        width: 4rem;
+    }
+}
+
+/* For Large screens */
+@media (min-width: 1200px) {
+    
+}

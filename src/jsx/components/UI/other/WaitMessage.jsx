@@ -1,6 +1,6 @@
 import React from "react";
 import { CircularProgress } from "@mui/material";
-import "../../../css/WaitMessage.css";
+import "../../../../css/WaitMessage.css";
 
 const WaitMessage = props => {
 

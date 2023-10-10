@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../../../css/MainContainer.css";
+import "../../../../css/MainContainer.css";
 
 const MainContainer = props => {
 

@@ -1,26 +1,28 @@
 import React from "react";
-import "../../../css/WeatherCard.css";
+import "../../../../../css/ViewWeatherCard.css";
 
-import WeatherCardBottom from "./WeatherCardBottom";
+import { getRandomHSLColor } from "../../../../../js/utils/colorUtils";
 
-import { getRandomHSLColor } from "../../../js/utils/colorUtils";
-import WeatherCardTop from "./WeatherCardTop";
+import ViewWeatherCardBottom from "./ViewWeatherCardBottom";
+import ViewWeatherCardTop from "./ViewWeatherCardTop";
+import BackButton from "../../buttons/BackButton";
 
-const WeatherCard = (props) => {
 
-    const city = props.city;
+const ViewWeatherCard = props => {
+    const city = props.weatherData;
     const date = new Date(city.dt * 1000);
-    
-    const onClickWeatherCardkHandler = (cityName) => {
-        props.onClickWeatherCard(cityName);
-    }
+
+    const onClickBackHandler = (e) => {
+        props.onClickBack(true);
+    };
 
     return (
         <>
-            <div key={city.name} className="weather-card__container"
-                style={{ backgroundColor: getRandomHSLColor(city.name) }}
-                onClick={() => onClickWeatherCardkHandler(city.name)}>
-                <WeatherCardTop
+            <div className="view-weather-card__container"
+                style={{ backgroundColor: getRandomHSLColor(city.name) }}>
+
+                <BackButton onClick={onClickBackHandler} />
+                <ViewWeatherCardTop
                     cityName={city.name}
                     country={city.sys.country}
                     date={date}
@@ -30,7 +32,7 @@ const WeatherCard = (props) => {
                     maximumTemperature={city.main.temp_max}
                     weatherIconName={city.weather[0].icon}
                 />
-                <WeatherCardBottom
+                <ViewWeatherCardBottom
                     pressure={city.main.pressure}
                     humidity={city.main.humidity}
                     visibility={city.visibility}
@@ -43,4 +45,4 @@ const WeatherCard = (props) => {
     );
 };
 
-export default WeatherCard;
+export default ViewWeatherCard;

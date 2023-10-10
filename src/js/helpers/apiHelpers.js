@@ -1,4 +1,4 @@
-import { WEATHER_API_BASE_URL, WEATHER_API_KEY } from "../constants/constants.js";
+import { WEATHER_API_BASE_URL, WEATHER_API_KEY } from "../constants/constants";
 
 
 const fetchWeatherDataByCityCodes = async (cityCodes) => {

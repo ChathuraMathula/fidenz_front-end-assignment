@@ -3,15 +3,15 @@ import '../../css/App.css';
 import cities from "../../json/cities.json";
 import { fetchCachedWeatherData, cacheWeatherData } from '../../js/helpers/localStorageHelpers';
 import fetchWeatherDataByCityCodes from '../../js/helpers/apiHelpers';
-import AppHeader from './WeatherApp/AppHeader';
-import AppFooter from './WeatherApp/AppFooter';
-import ErrorMessage from './WeatherApp/ErrorMessage';
-import WaitMessage from './WeatherApp/WaitMessage';
-import WeatherContainer from './WeatherApp/WeatherContainer';
-import MainContainer from './WeatherApp/MainContainer';
+import AppHeader from './header/AppHeader';
+import AppFooter from './footer/AppFooter';
+import ErrorMessage from './UI/other/ErrorMessage';
+import WaitMessage from './UI/other/WaitMessage';
+import WeatherContainer from './UI/containers/WeatherContainer';
+import MainContainer from './UI/containers/MainContainer';
 
 
-function App() {
+function WeatherApp() {
 
   const [cityCodes, setCityCodes] = useState([]);
   const [weatherInfo, setWeatherInfo] = useState({});
@@ -79,4 +79,4 @@ function App() {
 
 }
 
-export default App
+export default WeatherApp

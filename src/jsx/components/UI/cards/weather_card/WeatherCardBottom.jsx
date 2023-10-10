@@ -1,16 +1,15 @@
 import React from "react";
-import "../../../css/ViewWeatherCardBottom.css";
+import "../../../../../css/WeatherCardBottom.css";
 
-import wind_direction_icon from "../../../images/wind_direction.png";
+import wind_direction_icon from "../../../../../images/wind_direction.png";
 
-import { getTimeString } from "../../../js/utils/dateUtils";
+import { getTimeString } from "../../../../../js/utils/dateUtils";
 
-const ViewWeatherCardBottom = props => {
-
+const WeatherCardBottom = props => {
 
     return (
         <>
-            <section className="view-card__bottom-section">
+            <section className="bottom-section">
                 <div>
                     <p><span>Pressure:</span>{` ${props.pressure}hPa`}</p>
                     <p><span>Humidity:</span>{` ${props.humidity}%`}</p>
@@ -29,4 +28,4 @@ const ViewWeatherCardBottom = props => {
     );
 };
 
-export default ViewWeatherCardBottom;
+export default WeatherCardBottom;

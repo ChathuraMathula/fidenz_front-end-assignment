@@ -1,10 +1,10 @@
 import React from "react";
-import "../../../css/WeatherCardTop.css";
+import "../../../../../css/WeatherCardTop.css";
 
-import { getDateString, getTimeString } from "../../../js/utils/dateUtils";
-import { capitalizeEachWord } from "../../../js/utils/stringUtils";
+import { getDateString, getTimeString } from "../../../../../js/utils/dateUtils";
+import { capitalizeEachWord } from "../../../../../js/utils/stringUtils";
 
-import { WEATHER_ICON_BASE_URL } from "../../../js/constants/constants";
+import { WEATHER_ICON_BASE_URL } from "../../../../../js/constants/constants";
 
 const WeatherCardTop = props => {
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import WeatherCard from "./WeatherCard";
-import "../../../css/WeatherContainer.css";
-import ViewWeatherCard from "./ViewWeatherCard";
+import WeatherCard from "../cards/weather_card/WeatherCard";
+import "../../../../css/WeatherContainer.css";
+import ViewWeatherCard from "../cards/view_weather_card/ViewWeatherCard.jsx";
 
 const WeatherContainer = (props) => {
 
@@ -28,17 +28,18 @@ const WeatherContainer = (props) => {
                 !isViewing && props.weatherInfo?.list
                     ? props.weatherInfo.list.map((listItem, i) => {
                         return (
-                            <>
-                                <WeatherCard city={listItem}
-                                    onClickWeatherCard={onClickWeatherCardHandler} />
-                            </>
+                            <WeatherCard
+                                city={listItem}
+                                onClickWeatherCard={onClickWeatherCardHandler}
+                            />
                         );
                     })
                     : isViewing && cityWeatherData.name
-                        ? <>
-                            <ViewWeatherCard weatherData={cityWeatherData} 
-                                onClickBack={onClickBackhandler} />
-                        </>
+                        ? 
+                        <ViewWeatherCard
+                            weatherData={cityWeatherData}
+                            onClickBack={onClickBackhandler}
+                        />
                         : null
             }
         </>
