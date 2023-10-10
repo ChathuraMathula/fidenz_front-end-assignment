@@ -11,10 +11,12 @@ const WeatherCardTop = props => {
     const iconUrl = `${WEATHER_ICON_BASE_URL}/${props.weatherIconName}@2x.png`;
 
     return (
-        <section className="section01">
+        <section className="weather-card__top-section">
             <div>
                 <h2>{`${props.cityName}, ${props.country}`}</h2>
-                <span className="updated-time">{`${getTimeString(props.date)}, ${getDateString(props.date)}`}</span>
+                <span className="updated-time">
+                    {`${getTimeString(props.date)}, ${getDateString(props.date)}`}
+                </span>
                 <div className="weather-status">
                     <img src={iconUrl}></img>
                     <span>{`${capitalizeEachWord(props.weatherDescription)}`}</span>

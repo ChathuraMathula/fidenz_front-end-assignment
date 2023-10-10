@@ -1,39 +1,37 @@
-.section01 {
+.weather-card__top-section {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    padding: 1rem 2rem;
+    padding: 0.4rem;
     color: white;
-    font-size: 1rem;
+    font-size: 0.7rem;
     border-radius: 5px 5px 0 0;
     background-image: url(../images/cloud_bg.png);
     background-size: contain;
     background-position: center bottom;
     background-repeat: no-repeat;
-    padding-top: 1rem;
 }
 
-.section01>div {
+.weather-card__top-section>div {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0.5rem;
 }
 
-.section01 p,
-.section01 span {
-    font-size: 1rem;
+.weather-card__top-section p,
+.weather-card__top-section span {
+    font-size: 0.7rem;
 }
 
-.section01>div:nth-child(1)>* {
+.weather-card__top-section>div:nth-child(1)>* {
     padding: 0;
     text-align: center;
 }
 
-.section01>div:nth-child(1)>h2 {
+.weather-card__top-section>div:nth-child(1)>h2 {
     padding: 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 0;
 }
 
@@ -51,13 +49,10 @@ div.weather-status>img {
     width: 3.2rem;
 }
 
-.section02 span {
-    font-weight: bold;
-}
 
 .temperature>h2 {
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 1.6rem;
+    font-weight: normal;
     margin: 0;
 }
 
@@ -65,36 +60,34 @@ div.weather-status>img {
     padding: 3px 0;
 }
 
+span.updated-time {
+    margin: 0.2rem 0;
+}
+
 /* For Medium Mobile Phones */
 @media (min-width: 576px) {
-    .section01 {
-        flex-direction: row;
-        padding: 2rem 1rem;
-        color: white;
-        border-radius: 5px 5px 0 0;
-        background-image: url(../images/cloud_bg.png);
-        background-size: contain;
-        background-position: center bottom;
-        background-repeat: no-repeat;
-        align-items: center;
+    .weather-card__top-section {
+        padding: 1rem;
+        font-size: 0.8rem;
     }
 
-    .section01>div {
+    .weather-card__top-section>div {
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 100%;
         justify-content: space-between;
+        height: 100%;
+        padding: 0;
     }
 
-    .section01>div:nth-child(1)>* {
+    .weather-card__top-section>div:nth-child(1)>* {
         text-align: center;
     }
 
 
-    .section01>div:nth-child(1)>h2 {
+    .weather-card__top-section>div:nth-child(1)>h2 {
         padding: 0;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         margin: 0;
     }
 
@@ -111,7 +104,7 @@ div.weather-status>img {
     }
 
     .temperature>h2 {
-        font-size: 3rem;
+        font-size: 2.2rem;
         font-weight: normal;
         margin: 0;
     }
@@ -120,35 +113,80 @@ div.weather-status>img {
         padding: 5px 0;
         margin: 0;
     }
+
+    .weather-card__top-section p,
+    .weather-card__top-section span {
+        font-size: 0.8rem;
+    }
+
 }
 
 /* For Tablets & Laptops */
 @media (min-width: 768px) {
 
-    .section01 {
-        padding: 1rem;
+    .weather-card__top-section {
+        padding: 0.4rem;
+        font-size: 0.7rem;
+    }
+
+    .weather-card__top-section>div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+    }
+
+
+    .weather-card__top-section p,
+    .weather-card__top-section span {
+        font-size: 0.7rem;
+    }
+
+    .weather-card__top-section>div:nth-child(1)>* {
+        text-align: center;
+    }
+
+    .weather-card__top-section>div:nth-child(1)>h2 {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+
+
+    div.weather-status {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    div.weather-status>img {
+        height: 3.2rem;
+        width: 3.2rem;
+    }
+
+
+    .temperature>h2 {
+        font-size: 1.6rem;
+        font-weight: normal;
+        margin: 0;
     }
 
     .temperature>p {
-        font-size: 1rem;
-    }
-
-    .updated-time,
-    .weather-status {
-        font-size: 1rem;
+        padding: 3px 0;
     }
 
 }
 
 /* For Laptops */
 @media (min-width: 992px) {
-    div.weather-status>img {
-        height: 4rem;
-        width: 4rem;
+    div.weather-status {
+        flex-direction: row;
+        align-items: center;
+        margin-top: 0.5rem;
+        padding: 0;
     }
 }
 
 /* For Large screens */
-@media (min-width: 1200px) {
-
-}
+@media (min-width: 1200px) {}
