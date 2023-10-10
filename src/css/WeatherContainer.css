@@ -1,7 +1,7 @@
 .main-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
     padding: 0.5rem;
@@ -10,7 +10,6 @@
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
-    color: white;
 }
 
 /* For Medium Mobile Phones */
