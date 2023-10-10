@@ -1,8 +1,14 @@
 import { useEffect, useState } from 'react'
 import '../../css/App.css';
+
 import cities from "../../json/cities.json";
-import { fetchCachedWeatherData, cacheWeatherData } from '../../js/helpers/localStorageHelpers';
+
+import {
+  fetchCachedWeatherData,
+  cacheWeatherData
+} from '../../js/helpers/localStorageHelpers';
 import fetchWeatherDataByCityCodes from '../../js/helpers/apiHelpers';
+
 import AppHeader from './header/AppHeader';
 import AppFooter from './footer/AppFooter';
 import ErrorMessage from './UI/other/ErrorMessage';
@@ -14,7 +20,7 @@ import MainContainer from './UI/containers/MainContainer';
 function WeatherApp() {
 
   const [cityCodes, setCityCodes] = useState([]);
-  const [weatherInfo, setWeatherInfo] = useState({});
+  const [weatherData, setWeatherData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -41,7 +47,7 @@ function WeatherApp() {
       await fetchWeatherDataByCityCodes(cityCodes)
         .then(latestWeatherData => {
           cacheWeatherData(latestWeatherData);
-          setWeatherInfo({ ...latestWeatherData });
+          setWeatherData({ ...latestWeatherData });
           setIsLoading(false);
           setError(false);
         })
@@ -52,7 +58,7 @@ function WeatherApp() {
         });
 
     } else {
-      setWeatherInfo({ ...cachedWeatherData });
+      setWeatherData({ ...cachedWeatherData });
       setIsLoading(false);
       setError(false);
     }
@@ -68,7 +74,7 @@ function WeatherApp() {
             ? <ErrorMessage error={error} />
             : isLoading
               ? <WaitMessage />
-              : <WeatherContainer weatherInfo={weatherInfo} />
+              : <WeatherContainer weatherData={weatherData} />
         }
       </MainContainer>
       <AppFooter />

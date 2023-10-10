@@ -9,7 +9,7 @@ const WeatherContainer = (props) => {
     const [isViewing, setIsViewing] = useState(false);
 
     const onClickWeatherCardHandler = (cityName) => {
-        const extractedCityWeatherData = props.weatherInfo?.list.filter(city => {
+        const extractedCityWeatherData = props.weatherData?.list.filter(city => {
             return city.name === cityName;
         });
         setCityWeatherData({ ...extractedCityWeatherData[0] });
@@ -25,8 +25,8 @@ const WeatherContainer = (props) => {
     return (
         <>
             {
-                !isViewing && props.weatherInfo?.list
-                    ? props.weatherInfo.list.map((listItem, i) => {
+                !isViewing && props.weatherData?.list
+                    ? props.weatherData.list.map((listItem, i) => {
                         return (
                             <WeatherCard
                                 city={listItem}
@@ -35,7 +35,7 @@ const WeatherContainer = (props) => {
                         );
                     })
                     : isViewing && cityWeatherData.name
-                        ? 
+                        ?
                         <ViewWeatherCard
                             weatherData={cityWeatherData}
                             onClickBack={onClickBackhandler}
