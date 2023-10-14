@@ -1,4 +1,4 @@
-import { WEATHER_API_BASE_URL, WEATHER_API_KEY } from "../constants/constants";
+import { WEATHER_API_BASE_URL, WEATHER_API_KEY, WEATHER_API_UNITS } from "../constants/constants";
 
 
 const fetchWeatherDataByCityCodes = async (cityCodes) => {
@@ -7,7 +7,8 @@ const fetchWeatherDataByCityCodes = async (cityCodes) => {
         try {
             const cityCodesString = cityCodes.join();
 
-            const weatherApiUrl = `${WEATHER_API_BASE_URL}?id=${cityCodesString}&units=metric&appid=${WEATHER_API_KEY}`;
+            const weatherApiUrl = 
+                `${WEATHER_API_BASE_URL}?id=${cityCodesString}&units=${WEATHER_API_UNITS}&appid=${WEATHER_API_KEY}`;
             
             const response = await fetch(weatherApiUrl);
 

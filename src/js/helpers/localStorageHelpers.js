@@ -1,3 +1,4 @@
+import { CACHE_EXPIRE_TIME_IN_MILISECONDS } from "../constants/constants";
 
 export const cacheWeatherData = (weatherData) => {
     if (!weatherData) {
@@ -20,8 +21,9 @@ export const fetchCachedWeatherData = () => {
     }
     const { data, timespan } = JSON.parse(cachedData);
 
-    const fiveMinutesInMS = 5 * 60 * 1000;
-    if (Date.now() - timespan > fiveMinutesInMS) {
+    const currTimeGap = Date.now() - timespan;
+
+    if (currTimeGap > CACHE_EXPIRE_TIME_IN_MILISECONDS) {
         localStorage.removeItem("weatherData");
         return null;
     }
