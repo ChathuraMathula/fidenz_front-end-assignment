@@ -1,31 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import WeatherCard from "../cards/weather_card/WeatherCard";
 import "../../../../css/WeatherContainer.css";
 import ViewWeatherCard from "../cards/view_weather_card/ViewWeatherCard.jsx";
+import { cacheCityName, getCachedCityName, removeCachedCityName } from "../../../../js/helpers/localStorageHelpers";
 
 const WeatherContainer = (props) => {
 
     const [cityWeatherData, setCityWeatherData] = useState({});
-    const [isViewing, setIsViewing] = useState(false);
+    const [isViewingCityWeatherData, setIsViewingCityWeatherData] = useState(false);
 
-    const onClickWeatherCardHandler = (cityName) => {
+    useEffect(() => {
+        const cityName = getCachedCityName();
+        if (!cityName) {
+            return;
+        }
+
+        onClickWeatherCardHandler(cityName);
+    }, []);
+
+    const extractWeatherDataByCityName = (cityName) => {
         const extractedCityWeatherData = props.weatherData?.list.filter(city => {
             return city.name === cityName;
         });
+
+        return extractedCityWeatherData;
+    };
+
+    const onClickWeatherCardHandler = (cityName) => {
+        const extractedCityWeatherData = extractWeatherDataByCityName(cityName);
         setCityWeatherData({ ...extractedCityWeatherData[0] });
-        setIsViewing(true);
+        cacheCityName(cityName);
+        setIsViewingCityWeatherData(true);
     };
 
     const onClickBackhandler = (hasBackClicked) => {
         if (hasBackClicked) {
-            setIsViewing(false);
+            removeCachedCityName();
+            setIsViewingCityWeatherData(false);
         }
     };
 
     return (
         <>
             {
-                !isViewing && props.weatherData?.list
+                !isViewingCityWeatherData
                     ? props.weatherData.list.map((listItem, i) => {
                         return (
                             <WeatherCard
@@ -34,7 +52,7 @@ const WeatherContainer = (props) => {
                             />
                         );
                     })
-                    : isViewing && cityWeatherData.name
+                    : isViewingCityWeatherData
                         ?
                         <ViewWeatherCard
                             weatherData={cityWeatherData}
