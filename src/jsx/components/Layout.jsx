@@ -6,17 +6,17 @@ import AppFooter from "./footer/AppFooter";
 import ErrorMessage from "./UI/other/ErrorMessage";
 import LoadingSpinner from "./UI/other/LoadingSpinner";
 
-const Layout = (props) => {
+const Layout = ({ error, isLoading }) => {
     return (
         <>
             <AppHeader />
             <MainContainer>
                 {
-                    props.error
-                    ? <ErrorMessage error={props.error} />
-                    : props.isLoading
-                        ? <LoadingSpinner />
-                        : <Outlet />
+                    error
+                        ? <ErrorMessage error={error} />
+                        : isLoading
+                            ? <LoadingSpinner />
+                            : <Outlet />
                 }
             </MainContainer>
             <AppFooter />

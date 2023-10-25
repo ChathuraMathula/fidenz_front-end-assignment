@@ -1,4 +1,4 @@
-import { CACHE_EXPIRE_TIME_IN_MILISECONDS } from "../constants/constants";
+import { CACHE_EXPIRE_TIME_IN_MILISECONDS, CACHE_WEATHER_DATA_KEY } from "../constants/constants";
 
 export const cacheWeatherData = (weatherData) => {
     if (!weatherData) {
@@ -10,12 +10,12 @@ export const cacheWeatherData = (weatherData) => {
         timespan: timespan,
     };
 
-    localStorage.setItem("weatherData", JSON.stringify(cachedData));
+    localStorage.setItem(CACHE_WEATHER_DATA_KEY, JSON.stringify(cachedData));
 };
 
 export const fetchCachedWeatherData = () => {
 
-    const cachedData = localStorage.getItem("weatherData");
+    const cachedData = localStorage.getItem(CACHE_WEATHER_DATA_KEY);
     if (!cachedData) {
         return null;
     }
@@ -24,7 +24,7 @@ export const fetchCachedWeatherData = () => {
     const currTimeGap = Date.now() - timespan;
 
     if (currTimeGap > CACHE_EXPIRE_TIME_IN_MILISECONDS) {
-        localStorage.removeItem("weatherData");
+        localStorage.removeItem(CACHE_WEATHER_DATA_KEY);
         return null;
     }
     return data;

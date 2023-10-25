@@ -11,6 +11,7 @@ import Layout from './Layout';
 import AllWeatherItemsContainer from './UI/containers/AllWeatherItemsContainer';
 import SingleWeatherItemContainer from './UI/containers/SingleWeatherItemContainer';
 import ErrorMessage from './UI/other/ErrorMessage';
+import { PAGE_NOT_FOUND_PATH, ROOT_PATH, WEATHER_CARD_VIEW_PATH } from '../../js/constants/constants';
 
 // const cityCodes = cities.List.map(city => city.CityCode);
 
@@ -63,13 +64,13 @@ function WeatherApp() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Layout error={error} isLoading={isLoading} />}>
+        <Route element={<Layout error={error} isLoading={isLoading} />}>
           <Route
-            path=''
+            path={ROOT_PATH}
             element={<AllWeatherItemsContainer weatherData={weatherData} />}
           />
           <Route
-            path='/view'
+            path={WEATHER_CARD_VIEW_PATH}
             element={<SingleWeatherItemContainer weatherData={weatherData} />}
           />
           <Route

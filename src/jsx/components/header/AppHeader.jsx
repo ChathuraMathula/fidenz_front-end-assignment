@@ -1,13 +1,16 @@
 import React from "react";
 import weatherAppIcon from "../../../images/weather_app_icon.png";
-import { APP_HEADING } from "../../../js/constants/constants";
+import { APP_HEADING, ROOT_PATH } from "../../../js/constants/constants";
 
 import "../../../css/AppHeader.css";
+import { useNavigate } from "react-router";
 
 const AppHeader = props => {
 
+    const navigate = useNavigate();
+
     const onClickHeadingHandler = (event) => {
-        window.location.reload(true);
+        navigate(ROOT_PATH, { replace: true });
     }
 
     return (
