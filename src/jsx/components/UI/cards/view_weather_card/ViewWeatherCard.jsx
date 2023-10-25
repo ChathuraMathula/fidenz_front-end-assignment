@@ -9,7 +9,7 @@ import BackButton from "../../buttons/BackButton";
 
 
 const ViewWeatherCard = props => {
-    const city = props.weatherData;
+    const city = props.city;
     const date = new Date(city.dt * 1000);
 
     const onClickBackHandler = (e) => {

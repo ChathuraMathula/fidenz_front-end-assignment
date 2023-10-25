@@ -6,12 +6,10 @@ import cities from "../../json/cities.json";
 import { fetchCachedWeatherData, cacheWeatherData } from '../../js/helpers/localStorageHelpers';
 import fetchWeatherDataByCityCodes from '../../js/helpers/apiHelpers';
 
-import AppHeader from './header/AppHeader';
-import AppFooter from './footer/AppFooter';
-import ErrorMessage from './UI/other/ErrorMessage';
-import WeatherContainer from './UI/containers/WeatherContainer';
-import MainContainer from './UI/containers/MainContainer';
-import LoadingSpinner from './UI/other/LoadingSpinner';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Layout from './Layout';
+import AllWeatherItemsContainer from './UI/containers/AllWeatherItemsContainer';
+import SingleWeatherItemContainer from './UI/containers/SingleWeatherItemContainer';
 
 
 function WeatherApp() {
@@ -26,6 +24,8 @@ function WeatherApp() {
     const cityCodesArray = [];
     cities.List.forEach(city => (cityCodesArray.push(city.CityCode)))
     setCityCodes([...cityCodesArray]);
+
+    console.log("testing");
   }, []);
 
   useEffect(() => {
@@ -62,20 +62,23 @@ function WeatherApp() {
 
   };
 
+
   return (
-    <>
-      <AppHeader />
-      <MainContainer>
-        {
-          error
-            ? <ErrorMessage error={error} />
-            : isLoading
-              ? <LoadingSpinner />
-              : <WeatherContainer weatherData={weatherData} />
-        }
-      </MainContainer>
-      <AppFooter />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout error={error} isLoading={isLoading} />}>
+          <Route
+            path=''
+            element={<AllWeatherItemsContainer weatherData={weatherData} />}
+          />
+          <Route
+            path='/view'
+            element={<SingleWeatherItemContainer weatherData={weatherData}/>}
+          />
+          <Route path='*' element={<>404</>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 
 
