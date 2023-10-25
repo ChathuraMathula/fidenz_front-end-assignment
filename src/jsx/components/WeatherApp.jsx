@@ -21,7 +21,6 @@ function WeatherApp() {
   const [error, setError] = useState("");
 
   const cityCodes = useMemo(() => {
-    console.log("testing")
     return cities.List.map(city => city.CityCode);
   }, []);
 
