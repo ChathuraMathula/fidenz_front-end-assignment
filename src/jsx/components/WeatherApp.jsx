@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import '../../css/App.css';
 
 import cities from "../../json/cities.json";
@@ -10,23 +10,21 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
 import AllWeatherItemsContainer from './UI/containers/AllWeatherItemsContainer';
 import SingleWeatherItemContainer from './UI/containers/SingleWeatherItemContainer';
+import ErrorMessage from './UI/other/ErrorMessage';
 
+// const cityCodes = cities.List.map(city => city.CityCode);
 
 function WeatherApp() {
 
-  const [cityCodes, setCityCodes] = useState([]);
   const [weatherData, setWeatherData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
 
-
-  useEffect(() => {
-    const cityCodesArray = [];
-    cities.List.forEach(city => (cityCodesArray.push(city.CityCode)))
-    setCityCodes([...cityCodesArray]);
-
-    console.log("testing");
+  const cityCodes = useMemo(() => {
+    console.log("testing")
+    return cities.List.map(city => city.CityCode);
   }, []);
+
 
   useEffect(() => {
     if (cityCodes.length > 0) {
@@ -73,9 +71,11 @@ function WeatherApp() {
           />
           <Route
             path='/view'
-            element={<SingleWeatherItemContainer weatherData={weatherData}/>}
+            element={<SingleWeatherItemContainer weatherData={weatherData} />}
           />
-          <Route path='*' element={<>404</>} />
+          <Route
+            path='*'
+            element={<ErrorMessage error={"404 - Oops, This Page Doesn't Exist."} />} />
         </Route>
       </Routes>
     </BrowserRouter>

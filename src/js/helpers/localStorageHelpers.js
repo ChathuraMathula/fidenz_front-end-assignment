@@ -30,27 +30,3 @@ export const fetchCachedWeatherData = () => {
     return data;
 
 };
-
-export const cacheCityName = (cityname) => {
-
-    const cachingData = {
-        cityname: cityname,
-    };
-
-    localStorage.setItem("CityWeatherData", JSON.stringify(cachingData));
-}
-
-export const removeCachedCityName = () => {
-    localStorage.removeItem("CityWeatherData");
-}
-
-export const getCachedCityName = () => {
-    const cachedData = localStorage.getItem("CityWeatherData");
-    if (!cachedData) {
-        return null;
-    }
-
-    const { cityname } = JSON.parse(cachedData);
-
-    return cityname;
-}
